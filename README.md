@@ -1,4 +1,6 @@
 # -Python-assignments-2
+
+
 1. Market Sepeti Toplamı (List) Senaryo: Bir market sepetinde ürün fiyatları var. Sepetin toplam tutarını hesapla. Veri: prices = [12.5, 45.0, 9.99, 3.75] İstenen: Toplam tutarı hesapla. Sonucu float olarak döndür. Toplamı 2 ondalık basamakla yazdır. İpucu: sum() kullanabilirsin ama önce döngüyle de deneyebilirsin.
 
 prices = [12.5, 45.0, 9.99, 3.75]
@@ -165,3 +167,57 @@ kdvli_menu = {}
 for item, price in menu.items():
     kdvli_menu[item] = price * 1.10
 print("KDV'li Menü:", kdvli_menu)
+
+
+9. Öğrenci Not Defteri — Ders Bazlı
+Ortalama (Dict of List)
+Senaryo: Her dersin içinde not listesi var.
+Veri:
+grades_by_course = {
+"Matematik": [70, 85, 90],
+"Türkçe": [60, 75],
+"Fizik": [40, 55, 65]
+}
+İstenen:
+Her ders için ortalama notu hesapla.
+Sonuç dict olsun: {"Matematik": 81.67, ...} (2 ondalık)
+İpucu: Döngü içinde sum(list)/len(list).
+
+grades_by_course = {
+    "Matematik": [70, 85, 90],
+    "Türkçe": [80, 88, 92],
+    "Fizik": [75, 82, 88]
+}
+averages = {}
+
+# 1. döngü: ortalamaları hesapla
+for ders, notlar in grades_by_course.items():
+    averages[ders] = sum(notlar) / len(notlar)
+
+# 2. döngü: yazdır
+for ders, ort in averages.items():
+    print(f"{ders}: {ort:.2f}")
+
+
+2. Rent a Car — Kiralama Gün Sayısı ve
+Toplam Ücret (Dict)
+Senaryo: Bir araç kiralandı. Günlük fiyat ve kiralama başlangıç/bitiş gün sayısı
+veriliyor.
+Veri Örneği:
+rental = {"plate": "34 ABC 01", "daily": 1200, "days": 3}
+İstenen:
+Toplam ücreti hesapla: daily * days
+Eğer days <= 0 ise hata mesajı döndür.
+İpucu: Validasyon (doğrulama) her zaman ilk adım.
+
+
+
+
+rental = {"plate": "34 ABC 01", "daily": 1200, "days":3}
+
+if rental["days"] <= 0:
+    print("Hata!")
+else:
+    total = rental["daily"] * rental["days"]
+    print(f"Total rental cost for {rental['plate']} is: {total} TL")
+   
