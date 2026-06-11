@@ -124,3 +124,44 @@ def update_status(tracking_code, new_status):
 
 update_status("TR123", "Teslim Edildi")
 update_status("TR999", "Yolda")
+
+
+
+7. Alışveriş Listesi — Yinelenenleri
+Temizle (List)
+Senaryo: Kullanıcı aynı ürünü birden fazla kez yazmış.
+Veri:
+items = ["süt", "ekmek", "süt", "peynir", "ekmek", "yoğurt"]
+İstenen:
+Sıralamayı bozmadan tekrarları kaldır.
+Çıktı: ["süt", "ekmek", "peynir", "yoğurt"]
+İpucu: Bir seen listesi veya dict ile kontrol edebilirsin. (Set kullanmak kolay ama
+sırayı bozabilir.)
+
+
+items = ["süt" , "ekmek" , "süt" , "peynir" , "ekmek" , "yoğurt"]
+seen = []
+for item in items:
+    if item not in seen:
+      
+        seen.append(item)
+print(seen)
+
+
+
+8. Restoran Menü — KDV Dahil Fiyat (Dict)
+Senaryo: Menüde ürün adı → fiyat var. KDV %10 eklenecek.
+Veri:
+menu = {"Hamburger": 180, "Pizza": 220, "Ayran": 30}
+İstenen:
+Her ürünün KDV dahil fiyatını hesapla.
+Yeni bir dict döndür: {"Hamburger": 198.0, ...}
+İpucu: dict comprehension: {k: v*1.10 for k, v in menu.items()}
+
+
+menu = {"Hamburger": 180, "Pizza": 220, "Ayran":30}
+
+kdvli_menu = {}
+for item, price in menu.items():
+    kdvli_menu[item] = price * 1.10
+print("KDV'li Menü:", kdvli_menu)
