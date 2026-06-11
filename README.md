@@ -51,3 +51,76 @@ for car in cars:
 
 plates = [car["plate"] for car in cars if car["auto"] and car["daily"] <= max_price]
 print("Uygun araçların plakaları:", plates)
+
+
+
+
+4. Telefon Rehberi — Numara Bul (Dict)
+Senaryo: Basit bir telefon rehberi sözlüğü var. Kullanıcı isim girince numarasını
+bulmak istiyor.
+Veri:
+phonebook = {"Ayşe": "0532...", "Mehmet": "0505...", "Zeynep": "0544..."}
+İstenen:
+name verildiğinde numarayı döndür.
+Kişi yoksa “Kayıt bulunamadı” döndür.
+İpucu: dict.get(name, "Kayıt bulunamadı") en basit yol.
+
+
+phonebook = {"Ayşe": "1234567890", "Mehmet": "0587654321", "Zeynep": "5555555555"}
+name = input("isim giriniz: ")
+if name in phonebook:
+    print(f"{name} numarası: {phonebook[name]}")
+else:    print(f"{name} rehberde bulunamadı.")
+
+
+
+
+5. Günlük Harcama Takibi — Toplam ve En
+Yüksek (List)
+Senaryo: Bir hafta boyunca günlük harcamaların listede.
+Veri:
+expenses = [120, 0, 75, 200, 50, 30, 90]
+İstenen:
+Toplam harcamayı bul.
+En yüksek harcama yapılan günü (index + 1 şeklinde gün numarası) bul. Harcama 0 olan günleri ayrıca listele.
+İpucu: En yüksek için max() ve index için list.index() kullanılabilir.
+
+
+
+expenses = [120, 0, 75, 200, 50, 30, 90]
+total_expenses = sum(expenses)
+average_expense = total_expenses / len(expenses)
+print(f"Toplam Harcama: {total_expenses} TL")
+en_yüksek_harcama = max(expenses)
+en_düşük_harcama = min(expenses)
+gun = expenses.index(en_yüksek_harcama)  +1
+print(f"En Yüksek Harcama: {gun}. günde: {en_yüksek_harcama}  TL")
+for i in range(len(expenses)): 
+    if expenses [i] == 0:
+        print(f"{i+1}. günde harcama yapılmadı.")
+
+
+
+        6. Kargo Takip — Durum Güncelle (Dict)
+Senaryo: Bir kargo takip sistemi var. tracking sözlüğünde takip no → durum
+tutuluyor.
+Veri:
+tracking = {"TR123": "Yolda", "TR124": "Şubede", "TR125": "Teslim edildi"}
+İstenen:
+update_status(tracking, code, new_status) fonksiyonu yaz.
+Kod yoksa yeni kayıt eklesin.
+Eski durum ve yeni durumu yazdır (log gibi).
+İpucu: tracking[code] = new_status her iki durumda da iş görür; ama önce eskiyi get
+ile al.
+
+
+
+tracking = {"TR123": "Yolda", "TR124": "Şubede", "TR125": "Teslim Edildi"}
+
+def update_status(tracking_code, new_status):
+    eski_durum = tracking.get(tracking_code, "Yeni kayıt")
+    tracking[tracking_code] = new_status
+    print(f"{tracking_code}: {eski_durum} → {new_status}")
+
+update_status("TR123", "Teslim Edildi")
+update_status("TR999", "Yolda")
