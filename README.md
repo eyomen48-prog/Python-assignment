@@ -220,4 +220,29 @@ if rental["days"] <= 0:
 else:
     total = rental["daily"] * rental["days"]
     print(f"Total rental cost for {rental['plate']} is: {total} TL")
+
+
+
+
+
+    11) E-Ticaret Sepeti — Ürün Adedi Say
+(List)
+Senaryo: Kullanıcının sepetinde ürün ID’leri listeleniyor. Aynı ürün birden fazla
+kez olabilir.
+Veri:
+cart = ["SKU1", "SKU2", "SKU1", "SKU3", "SKU2", "SKU1"]
+İstenen:
+Her SKU’nun adedini sayan bir dict üret.
+Çıktı örneği: {"SKU1": 3, "SKU2": 2, "SKU3": 1}
+İpucu: “frequency map” mantığı: counts[sku] = counts.get(sku, 0) +
    
+
+
+cart = ["SKU1", "SKU2", "SKU1", "SKU3", "SKU2", "SKU1"]
+
+counts = {}  # boş dict
+
+for sku in cart:
+    counts[sku] = counts.get(sku, 0) + 1
+
+print(counts)
