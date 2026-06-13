@@ -1,0 +1,5 @@
+sayi1 = input("birinci sayiyi giriniz")
+sayi2 = input("ikinci sayiyi giriniz")
+sayi3 = input("ucuncu sayiyi giriniz")
+toplam = int(sayi1) + int(sayi2) + int(sayi3)
+print("toplam" "=", toplam)
