@@ -1,0 +1,1 @@
+print("egenin kara götü")
